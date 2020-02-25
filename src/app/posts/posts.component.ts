@@ -5,18 +5,19 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
-export class PostsComponent implements OnInit {
+export class PostsComponent {
 
   @Input title : string;
   @Input content : string;
   @Input liked : boolean;
-  @Input nombreLike : float = 0;
+  @Input nombreLike : int = 0;
 
   constructor() {
     this.dateCreation = new Date();
-   }
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
   }
 
   nbLikeMore() {
