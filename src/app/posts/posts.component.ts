@@ -10,10 +10,11 @@ export class PostsComponent implements OnInit {
   @Input title : string;
   @Input content : string;
   @Input liked : boolean;
-  @Input publicationDate : string;
   @Input nombreLike : float = 0;
 
-  constructor() { }
+  constructor() {
+    this.dateCreation = new Date();
+   }
 
   ngOnInit(): void {
   }
