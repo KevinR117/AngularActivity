@@ -1,22 +1,17 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Authentification</a></li>
+        <li class="active"><a href="#">Appareils</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Posts</h2>
-      <app-posts *ngFor="let post of Posts; let i=index" [title]="post.title" [content]="post.content" [index]="i"></app-posts>
-      <ul class="list-group-item">
-        <h4>Poster un nouveau message :</h4>
-          <div class="biggerContainer">
-            <h6>Entrez un titre :</h6><div class="container"><input type="text" [(ngModel)]="nouveauTitre"></div>
-            <h6>Contenu du message :</h6><div class="container"><input type="text" [(ngModel)]="nouveauMessage"></div>
-            <div class="biggerContainer"><button type="submit" (click)="envoiMessage()">Soumettre</button></div>
-          </div>
-      </ul>
-      <div class="biggerContainer">
-        <button class ="btn btn-success" (click)="changeTitle()">Changer tous les titres</button>
-      </div>
-      <div class="biggerContainer">
-        <button class ="btn btn-success" (click)="changeContent()">Changer tous les contenus</button>
-      </div>
+      <app-posts-view></app-posts-view>
     </div>
   </div>
 </div>

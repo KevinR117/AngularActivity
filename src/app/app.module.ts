@@ -8,6 +8,15 @@ import { PostsComponent } from './posts/posts.component';
 import { PostsService } from './services/posts.service';
 import { AuthComponent } from './auth/auth.component';
 import { PostsViewComponent } from './posts-view/posts-view.component';
+import { Routes } from '@angular/router';
+
+const appRoutes : routes = [
+  {path : 'posts', component : PostsViewComponent},
+  {path : 'auth', component : AuthComponent},
+  {path : '', component : PostsViewComponent},
+]
+
+
 
 @NgModule({
   declarations: [
