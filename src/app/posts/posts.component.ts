@@ -12,6 +12,8 @@ export class PostsComponent implements OnInit {
   @Input content : string;
   @Input liked : boolean;
 
+  @Input id : number;
+
   authStatus : boolean;
 
   nombreLike : int = 0;

@@ -17,5 +17,6 @@
     <input type="text" [(ngModel)]="nouveauTitleOne">
     <button type="submit" (click)="changeTitleOne()" [disabled]="!authStatus">Modifier le titre</button>
     <div [ngStyle]="{'color' : getColor()}">Nombre de Likes : {{ nombreLike }}</div>
+    <a [routerLink]="[id]">Détails</a>
   </div>
 </div>
