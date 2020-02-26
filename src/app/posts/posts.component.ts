@@ -62,4 +62,8 @@ export class PostsComponent implements OnInit {
     this.modifDate = new Date();
     this.modified = true;
   }
+
+  niqueTaMere () {
+    console.log('la vie de oim nique ta grand mère toi');
+  }
 }

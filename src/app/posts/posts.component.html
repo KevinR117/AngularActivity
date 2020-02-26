@@ -12,10 +12,10 @@
     </div>
     <h6>Modifier le contenu du message : </h6>
     <input type="text" [(ngModel)]="nouveauContenuOne">
-    <button type="submit" (click)="changeContentOne()" [disabled]="!authStatus">Modifier le contenu</button>
+    <button type="submit" (click)="changeContentOne()">Modifier le contenu</button>
     <h6>Modifier le titre du message :</h6>
     <input type="text" [(ngModel)]="nouveauTitleOne">
-    <button type="submit" (click)="changeTitleOne()" [disabled]="!authStatus">Modifier le titre</button>
+    <button type="submit" (click)="changeTitleOne()">Modifier le titre</button>
     <div [ngStyle]="{'color' : getColor()}">Nombre de Likes : {{ nombreLike }}</div>
     <a [routerLink]="[id]">Détails</a>
   </div>
