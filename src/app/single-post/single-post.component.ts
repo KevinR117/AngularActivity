@@ -9,14 +9,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SinglePostComponent implements OnInit {
 
-  title : string = 'titre';
-  content : string = 'contenu';
-
+  title : string;
+  content : string;
+  
   constructor(private postsService : PostsService, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
-    console.log(id);
+    this.title = this.postsService.getPostById(+id).title;
+    this.content = this.postsService.getPostById(+id).content;
   }
 
 }

@@ -45,5 +45,14 @@ export class PostsService {
   dislikeOne(i: number) {
     this.Posts[i].nombreLike--;
   }
+
+  getPostById(id: number) {
+    const post = this.Posts.find(
+      (s) => {
+        return s.id === id;
+      }
+    )
+    return post;
+  }
 };
 
