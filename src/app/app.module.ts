@@ -11,9 +11,11 @@ import { PostsViewComponent } from './posts-view/posts-view.component';
 import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './services/auth.service';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 const appRoutes : routes = [
   {path : 'posts', component : PostsViewComponent},
+  {path : 'posts/:id', component : SinglePostComponent},
   {path : 'auth', component : AuthComponent},
   {path : '', component : PostsViewComponent},
 ]
@@ -23,7 +25,8 @@ const appRoutes : routes = [
     AppComponent,
     PostsComponent,
     AuthComponent,
-    PostsViewComponent
+    PostsViewComponent,
+    SinglePostComponent
   ],
   imports: [
     BrowserModule,
