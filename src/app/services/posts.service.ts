@@ -6,17 +6,20 @@ export class PostsService {
     {
       title : 'Premier Post',
       content : 'blablabla',
-      publicationDate : new Date()
+      publicationDate : new Date(),
+      nombreLike : 0
     },
     {
       title : 'Second Post',
       content : 'blablablabla',
-      publicationDate : new Date()
+      publicationDate : new Date(),
+      nombreLike : 0
     },
     {
       title : 'Dernier Post',
       content : 'blablablablabla',
-      publicationDate : new Date()
+      publicationDate : new Date(),
+      nombreLike : 0
     },
   ];
 
@@ -30,6 +33,14 @@ export class PostsService {
     for (let post of this.Posts) {
       post.content = 'même contenu pour tout le monde !';
     }
+  }
+
+  likeOne(i: number) {
+    this.Posts[i].nombreLike++;
+  }
+
+  dislikeOne(i: number) {
+    this.Posts[i].nombreLike--;
   }
 };
 
