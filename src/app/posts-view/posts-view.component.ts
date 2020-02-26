@@ -16,17 +16,18 @@ export class PostsViewComponent implements OnInit {
   constructor(private postsService : PostsService) { }
 
   ngOnInit() {
-    this.Posts = this.postsService.Posts
+    this.Posts = this.postsService.Posts;
   }
 
   envoiMessage() {
     let newPost = {
+      id : this.Posts[this.Posts.length - 1].id + 1,
       title : this.nouveauTitre,
       content : this.nouveauMessage,
       publicationDate : new Date(),
       nombreLike : 0,
     }
-    this.Posts.push(newPost)
+    this.Posts.push(newPost);
   }
 
   changeTitle() {
