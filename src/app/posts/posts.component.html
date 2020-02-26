@@ -4,12 +4,18 @@
     <div *ngIf="modified === true" class="modifDate">Modified at {{ modifDate | date : 'short' }}</div>
     <h4>{{ title }}</h4>
     <div>{{ content }}</div>
-    <div class="button" (click)="nbLikeMore()"><button class="btn btn-success">Like</button></div>
-    <div class="button" (click)="nbLikeLess()"><button class="btn btn-danger">Dislike</button></div>
-    <h6>Modifier le contenu du message : </h6><input type="text" [(ngModel)]="nouveauContenuOne">
-    <button type="submit" (click)="changeContentOne()">Modifier le contenu</button>
-    <h6>Modifier le titre du message :</h6><input type="text" [(ngModel)]="nouveauTitleOne">
-    <button type="submit" (click)="changeTitleOne()">Modifier le titre</button>
+    <div class="button" (click)="nbLikeMore()">
+      <button class="btn btn-success">Like</button>
+    </div>
+    <div class="button" (click)="nbLikeLess()">
+      <button class="btn btn-danger">Dislike</button>
+    </div>
+    <h6>Modifier le contenu du message : </h6>
+    <input type="text" [(ngModel)]="nouveauContenuOne">
+    <button type="submit" (click)="changeContentOne()" [disabled]="!authStatus">Modifier le contenu</button>
+    <h6>Modifier le titre du message :</h6>
+    <input type="text" [(ngModel)]="nouveauTitleOne">
+    <button type="submit" (click)="changeTitleOne()" [disabled]="!authStatus">Modifier le titre</button>
     <div [ngStyle]="{'color' : getColor()}">Nombre de Likes : {{ nombreLike }}</div>
   </div>
 </div>

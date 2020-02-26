@@ -10,6 +10,7 @@ import { AuthComponent } from './auth/auth.component';
 import { PostsViewComponent } from './posts-view/posts-view.component';
 import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 const appRoutes : routes = [
   {path : 'posts', component : PostsViewComponent},
@@ -30,7 +31,8 @@ const appRoutes : routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    PostsService
+    PostsService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
