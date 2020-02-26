@@ -6,11 +6,15 @@ import { PostsService } from './../services/posts.service';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
-export class PostsComponent {
+export class PostsComponent implements OnInit {
 
   @Input title : string;
   @Input content : string;
   @Input liked : boolean;
+
+  @Input id : number;
+
+  authStatus : boolean;
 
   nombreLike : int = 0;
 
