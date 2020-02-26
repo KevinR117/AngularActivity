@@ -21,24 +21,22 @@ export class PostsComponent {
 
   modified = false;
 
-  Posts : any[];
-
   constructor(private postsService : PostsService) {
     this.dateCreation = new Date();
   }
 
   ngOnInit() {
-   this.Posts = this.postsService.Posts;
+
   }
 
   nbLikeMore() {
     this.postsService.likeOne(this.index);
-    this.nombreLike = this.Posts[this.index].nombreLike;
+    this.nombreLike = this.postsService.Posts[this.index].nombreLike;
   }
 
   nbLikeLess () {
     this.postsService.dislikeOne(this.index);
-    this.nombreLike = this.Posts[this.index].nombreLike;
+    this.nombreLike = this.postsService.Posts[this.index].nombreLike;
   }
 
   getColor () {
