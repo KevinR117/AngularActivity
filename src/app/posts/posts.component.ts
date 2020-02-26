@@ -11,6 +11,9 @@ export class PostsComponent {
   @Input content : string;
   @Input liked : boolean;
   @Input nombreLike : int = 0;
+  @Input index : number;
+
+  @Input nouveauContenuOne : string;
 
   constructor() {
     this.dateCreation = new Date();
@@ -34,5 +37,9 @@ export class PostsComponent {
     } else if (this.nombreLike > 0) {
       return "green";
     }
+  }
+
+  changeContentOne() {
+    this.content = this.nouveauContenuOne;
   }
 }

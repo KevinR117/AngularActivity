@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <h2>Posts</h2>
-      <app-posts *ngFor="let post of Posts" [title]="post.title" [content]="post.content" [liked]="post.liked"></app-posts>
+      <app-posts *ngFor="let post of Posts; let i=index" [title]="post.title" [content]="post.content" [index]="i"></app-posts>
       <ul class="list-group-item">
         <h4>Poster un nouveau message :</h4>
           <div class="biggerContainer">

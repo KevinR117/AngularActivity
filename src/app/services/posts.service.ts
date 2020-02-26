@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 export class PostsService {
+
     Posts : any[] = [
     {
       title : 'Premier Post',
@@ -30,6 +31,5 @@ export class PostsService {
       post.content = 'même contenu pour tout le monde !';
     }
   }
-
 };
 
