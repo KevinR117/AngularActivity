@@ -26,7 +26,8 @@ export class AppComponent implements onInit {
     let newPost = {
       title : this.nouveauTitre,
       content : this.nouveauMessage,
-      publicationDate : new Date()
+      publicationDate : new Date(),
+      nombreLike : 0,
     }
     this.Posts.push(newPost)
   }
