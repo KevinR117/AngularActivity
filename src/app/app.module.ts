@@ -9,14 +9,13 @@ import { PostsService } from './services/posts.service';
 import { AuthComponent } from './auth/auth.component';
 import { PostsViewComponent } from './posts-view/posts-view.component';
 import { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 const appRoutes : routes = [
   {path : 'posts', component : PostsViewComponent},
   {path : 'auth', component : AuthComponent},
   {path : '', component : PostsViewComponent},
 ]
-
-
 
 @NgModule({
   declarations: [
@@ -27,7 +26,8 @@ const appRoutes : routes = [
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     PostsService
