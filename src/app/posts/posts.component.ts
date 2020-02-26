@@ -13,7 +13,10 @@ export class PostsComponent {
   @Input nombreLike : int = 0;
   @Input index : number;
 
+  @Input nouveauTitleOne : string;
   @Input nouveauContenuOne : string;
+
+  modified = false;
 
   constructor() {
     this.dateCreation = new Date();
@@ -41,5 +44,13 @@ export class PostsComponent {
 
   changeContentOne() {
     this.content = this.nouveauContenuOne;
+    this.modifDate = new Date();
+    this.modified = true;
+  }
+
+  changeTitleOne() {
+    this.title = this.nouveauTitleOne;
+    this.modifDate = new Date();
+    this.modified = true;
   }
 }
