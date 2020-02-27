@@ -1,7 +1,7 @@
 <div class="container">
   <div [ngClass]="{'list-group-item' : true, 'list-group-item-success' : nombreLike > 0, 'list-group-item-danger' : nombreLike < 0}">
     <div class="date">{{ dateCreation | date : 'short' }}</div>
-    <div *ngIf="modified === true" class="modifDate">Modified at {{ modifDate | date : 'short' }}</div>
+    <div *ngIf="modified === true" class="modifDate">Lastly modified at {{ modifDate | date : 'short' }}</div>
     <h4>{{ title }}</h4>
     <div>{{ content }}</div>
     <div class="button" (click)="nbLikeMore()">

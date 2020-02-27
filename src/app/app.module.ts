@@ -13,6 +13,8 @@ import { AuthService } from './services/auth.service';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { HttpClientModule } from '@angular/common/http';
+import { NewPostComponent } from './new-post/new-post.component';
 
 const appRoutes : Routes = [
   {path : 'posts', canActivate : [AuthGuard], component : PostsViewComponent},
@@ -30,12 +32,14 @@ const appRoutes : Routes = [
     AuthComponent,
     PostsViewComponent,
     SinglePostComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
   ],
   providers: [
     PostsService,

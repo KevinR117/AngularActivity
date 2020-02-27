@@ -1,6 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 
+@Injectable()
 export class PostsService {
 
     postsSubject = new Subject<any[]>();
@@ -29,6 +33,35 @@ export class PostsService {
     },
   ];
 
+  constructor(private httpClient : HttpClient) { }
+
+  headers = new HttpHeaders({
+    'Access-Control-Allow-Origin' : '*',
+  })
+
+  savePostsToServer() {
+    this.httpClient.put('https://projetangular-3dd3c.firebaseio.com/.json', this.Posts).subscribe(
+      () => {
+        console.log('enregistrement terminé');
+      },
+      (error) => {
+        console.log('error : ' + error);
+      }
+    )
+  }
+
+  getPostsFromServer() {
+    this.httpClient.get('https://projetangular-3dd3c.firebaseio.com/', {headers : this.headers}).subscribe(
+      (reponse) => {
+        this.Posts = reponse;
+        this.emitPostSubject();
+      },
+      (error) => {
+        console.log('error : ' + error);
+      }
+    )
+  }
+
   changeTitlesAll() {
     for (let post of this.Posts) {
       post.title = 'même titre pour tout le monde !';
@@ -45,12 +78,10 @@ export class PostsService {
 
   likeOne(i: number) {
     this.Posts[i].nombreLike++;
-    this.emitPostSubject;
   }
 
   dislikeOne(i: number) {
     this.Posts[i].nombreLike--;
-    this.emitPostSubject();
   }
 
   getPostById(id: number) {

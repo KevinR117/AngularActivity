@@ -54,6 +54,14 @@ export class PostsViewComponent implements OnInit, OnDestroy {
     }
   }
 
+  onSave() {
+    this.postsService.savePostsToServer();
+  }
+
+  onFetch() {
+    this.postsService.getPostsFromServer();
+  }
+
   ngOnDestroy() {
     this.postSubscription.unsubscribe();
   }
