@@ -1,8 +1,11 @@
 import { Component, Input } from '@angular/core';
+import { Subject } from 'rxjs';
 
 export class PostsService {
 
-    Posts : any[] = [
+    postsSubject = new Subject<any[]>();
+
+    private Posts : any[] = [
     {
       id : 0,
       title : 'Premier Post',
@@ -29,21 +32,25 @@ export class PostsService {
   changeTitlesAll() {
     for (let post of this.Posts) {
       post.title = 'même titre pour tout le monde !';
+      this.emitPostSubject();
     }
   }
 
   changeContentsAll() {
     for (let post of this.Posts) {
       post.content = 'même contenu pour tout le monde !';
+      this.emitPostSubject();
     }
   }
 
   likeOne(i: number) {
     this.Posts[i].nombreLike++;
+    this.emitPostSubject;
   }
 
   dislikeOne(i: number) {
     this.Posts[i].nombreLike--;
+    this.emitPostSubject();
   }
 
   getPostById(id: number) {
@@ -53,6 +60,10 @@ export class PostsService {
       }
     )
     return post;
+  }
+
+  emitPostSubject() {
+    this.postsSubject.next(this.Posts.slice());
   }
 };
 

@@ -1,14 +1,17 @@
-import { Component, Input,OnInit } from '@angular/core';
-import { PostsService } from './../services/posts.service'
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { PostsService } from './../services/posts.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-posts-view',
   templateUrl: './posts-view.component.html',
   styleUrls: ['./posts-view.component.scss']
 })
-export class PostsViewComponent implements OnInit {
+export class PostsViewComponent implements OnInit, OnDestroy {
 
   Posts : any[];
+
+  postSubscription : Subscription;
 
   @Input nouveauMessage : string;
   @Input nouveauTitre : string;
@@ -16,7 +19,12 @@ export class PostsViewComponent implements OnInit {
   constructor(private postsService : PostsService) { }
 
   ngOnInit() {
-    this.Posts = this.postsService.Posts;
+    this.postSubscription = this.postsService.postsSubject.subscribe(
+      (Posts : any[]) => {
+        this.Posts = Posts;
+      }
+    );
+    this.postsService.emitPostSubject();
   }
 
   envoiMessage() {
@@ -44,5 +52,9 @@ export class PostsViewComponent implements OnInit {
     } else {
       return null;
     }
+  }
+
+  ngOnDestroy() {
+    this.postSubscription.unsubscription();
   }
 }
