@@ -10,7 +10,7 @@ import { OnDestroy } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements onInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
 
   seconds : number = 0;
   counterSubscription : Subscription;

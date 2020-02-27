@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { PostsService } from './../services/posts.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-posts-view',
@@ -13,8 +13,8 @@ export class PostsViewComponent implements OnInit, OnDestroy {
 
   postSubscription : Subscription;
 
-  @Input nouveauMessage : string;
-  @Input nouveauTitre : string;
+  @Input() nouveauMessage : string;
+  @Input() nouveauTitre : string;
 
   constructor(private postsService : PostsService) { }
 
@@ -55,6 +55,6 @@ export class PostsViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.postSubscription.unsubscription();
+    this.postSubscription.unsubscribe();
   }
 }

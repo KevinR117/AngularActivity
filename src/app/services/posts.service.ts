@@ -65,5 +65,9 @@ export class PostsService {
   emitPostSubject() {
     this.postsSubject.next(this.Posts.slice());
   }
+
+  getPosts() {
+    return this.Posts;
+  }
 };
 
