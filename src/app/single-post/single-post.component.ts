@@ -11,6 +11,7 @@ export class SinglePostComponent implements OnInit {
 
   title : string;
   content : string;
+  nombrelike : number;
   
   constructor(private postsService : PostsService, private route : ActivatedRoute) { }
 
@@ -18,6 +19,7 @@ export class SinglePostComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
     this.title = this.postsService.getPostById(+id).title;
     this.content = this.postsService.getPostById(+id).content;
+    this.nombrelike = this.postsService.getPostById(+id).nombrelike;
   }
 
 }

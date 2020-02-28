@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     if (this.authService.isAuth) {
       return true;
     } else {
-      alert('You are not connected, you cant go further');
+      console.log('You are not connected, you cant go further');
       this.router.navigate(['/auth']);
     }
   }
