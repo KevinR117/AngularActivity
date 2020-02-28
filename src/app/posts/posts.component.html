@@ -4,11 +4,11 @@
     <div *ngIf="modified === true" class="modifDate">Lastly modified at {{ modifDate | date : 'short' }}</div>
     <h4>{{ title }}</h4>
     <div>{{ content }}</div>
-    <div class="button" (click)="nbLikeMore()">
-      <button class="btn btn-success">Like</button>
+    <div class="button">
+      <button class="btn btn-success" (click)="nbLikeMore()">Like</button>
     </div>
-    <div class="button" (click)="nbLikeLess()">
-      <button class="btn btn-danger">Dislike</button>
+    <div class="button">
+      <button class="btn btn-danger" (click)="nbLikeLess()">Dislike</button>
     </div>
     <h6>Modifier le contenu du message : </h6>
     <input type="text" [(ngModel)]="nouveauContenuOne">

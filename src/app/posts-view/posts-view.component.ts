@@ -27,17 +27,6 @@ export class PostsViewComponent implements OnInit, OnDestroy {
     this.postsService.emitPostSubject();
   }
 
-  envoiMessage() {
-    let newPost = {
-      id : this.Posts[this.Posts.length - 1].id + 1,
-      title : this.nouveauTitre,
-      content : this.nouveauMessage,
-      publicationDate : new Date(),
-      nombreLike : 0,
-    }
-    this.Posts.push(newPost);
-  }
-
   changeTitle() {
     if(confirm('êtes-vous sûr de vouloir modifier le titre de tous les posts ?')) {
       this.postsService.changeTitlesAll();

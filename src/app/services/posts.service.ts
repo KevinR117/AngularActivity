@@ -37,6 +37,8 @@ export class PostsService {
 
   headers = new HttpHeaders({
     'Access-Control-Allow-Origin' : '*',
+    'Access-Control-Allow-Methods' : 'get',
+    'Access-Control-Allow-Headers' : '*',
   })
 
   savePostsToServer() {
@@ -52,7 +54,7 @@ export class PostsService {
 
   getPostsFromServer() {
     this.httpClient.get('https://projetangular-3dd3c.firebaseio.com/', {headers : this.headers}).subscribe(
-      (reponse) => {
+      (reponse : any[]) => {
         this.Posts = reponse;
         this.emitPostSubject();
       },
@@ -93,12 +95,23 @@ export class PostsService {
     return post;
   }
 
-  emitPostSubject() {
-    this.postsSubject.next(this.Posts.slice());
+  newMessage(title : string, content : string) {
+    const postObject = {
+      id : 0,
+      title : '',
+      content : '',
+      publicationDate : new Date(),
+      nombreLike : 0,
+    }
+    postObject.id = this.Posts[(this.Posts.length - 1)].id + 1;
+    postObject.title = title;
+    postObject.content = content;
+    this.Posts.push(postObject);
+    this.emitPostSubject();
   }
 
-  getPosts() {
-    return this.Posts;
+  emitPostSubject() {
+    this.postsSubject.next(this.Posts.slice());
   }
 };
 
