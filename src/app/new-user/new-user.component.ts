@@ -24,9 +24,9 @@ export class NewUserComponent implements OnInit {
 
   initForm() {
     this.userForm = this.formBuilder.group({
-      firstName,
-      lastName,
-      email
+      firstName : "",
+      lastName : "",
+      email : ""
     })
   }
 
